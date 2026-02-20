@@ -1,0 +1,173 @@
+diff -Naur a/tools/convpic/convpic.cpp b/tools/convpic/convpic.cpp
+--- a/tools/convpic/convpic.cpp	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/convpic/convpic.cpp	2022-11-14 17:59:37.000000000 +0100
+@@ -35,11 +35,11 @@
+ 
+ #include <string>
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/image.h>
+-#include <glcdgraphics/imagefile.h>
+-#include <glcdgraphics/glcd.h>
+-#include <glcdgraphics/pbm.h>
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/image.h"
++#include "../../glcdgraphics/imagefile.h"
++#include "../../glcdgraphics/glcd.h"
++#include "../../glcdgraphics/pbm.h"
+ 
+ static const char *prgname = "convpic";
+ static const char *VERSION = "0.1.3";
+diff -Naur a/tools/convpic/Makefile b/tools/convpic/Makefile
+--- a/tools/convpic/Makefile	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/convpic/Makefile	2026-02-20 14:58:05.466035317 +0100
+@@ -9,6 +9,7 @@
+ OBJS = $(PRGNAME).o
+ 
+ INCLUDES += -I../../
++INCLUDES += -I../../glcdgraphics/
+ LIBDIRS += -L../../glcdgraphics/
+ 
+ 
+diff -Naur a/tools/crtfont/crtfont.cpp b/tools/crtfont/crtfont.cpp
+--- a/tools/crtfont/crtfont.cpp	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/crtfont/crtfont.cpp	2026-02-20 15:43:39.094137176 +0100
+@@ -20,10 +20,11 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/font.h>
+-#include <glcdgraphics/image.h>
+-#include <glcdgraphics/pbm.h>
++
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/font.h"
++#include "../../glcdgraphics/image.h"
++#include "../../glcdgraphics/pbm.h"
+ 
+ static const char *prgname = "crtfont";
+ static const char *version = "0.1.6";
+diff -Naur a/tools/genfont/genfont.cpp b/tools/genfont/genfont.cpp
+--- a/tools/genfont/genfont.cpp	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/genfont/genfont.cpp	2026-02-20 15:43:58.761862334 +0100
+@@ -17,10 +17,10 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/font.h>
+-#include <glcdgraphics/image.h>
+-#include <glcdgraphics/pbm.h>
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/font.h"
++#include "../../glcdgraphics/image.h"
++#include "../../glcdgraphics/pbm.h"
+ 
+ static const char *prgname = "genfont";
+ static const char *version = "0.0.2";
+diff -Naur a/tools/lcdtestpattern/lcdtestpattern.cpp b/tools/lcdtestpattern/lcdtestpattern.cpp
+--- a/tools/lcdtestpattern/lcdtestpattern.cpp	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/lcdtestpattern/lcdtestpattern.cpp	2026-02-20 15:44:12.773666500 +0100
+@@ -24,13 +24,13 @@
+ 
+ #include <string>
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/glcd.h>
+-#include <glcdgraphics/image.h>
+-#include <glcddrivers/config.h>
+-#include <glcddrivers/common.h>
+-#include <glcddrivers/driver.h>
+-#include <glcddrivers/drivers.h>
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/glcd.h"
++#include "../../glcdgraphics/image.h"
++#include "../../glcddrivers/config.h"
++#include "../../glcddrivers/common.h"
++#include "../../glcddrivers/driver.h"
++#include "../../glcddrivers/drivers.h"
+ 
+ //-----------------------------------------------------------------------------
+ static const char *prgname = "lcdtestpattern";
+diff -Naur a/tools/Makefile b/tools/Makefile
+--- a/tools/Makefile	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/Makefile	2026-02-20 14:56:21.323416986 +0100
+@@ -5,6 +5,8 @@
+ 
+ include ../Make.config
+ 
++CXXFLAGS += -fPIC
++
+ ### Targets:
+ 
+ all:
+diff -Naur a/tools/showpic/showpic.cpp b/tools/showpic/showpic.cpp
+--- a/tools/showpic/showpic.cpp	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/showpic/showpic.cpp	2026-02-20 15:44:25.249492114 +0100
+@@ -24,12 +24,12 @@
+ 
+ #include <string>
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/image.h>
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/image.h"
+ 
+-#include <glcddrivers/config.h>
+-#include <glcddrivers/driver.h>
+-#include <glcddrivers/drivers.h>
++#include "../../glcddrivers/config.h"
++#include "../../glcddrivers/driver.h"
++#include "../../glcddrivers/drivers.h"
+ 
+ static const char *prgname = "showpic";
+ static const char *version = "0.1.3";
+diff -Naur a/tools/showtext/showtext.cpp b/tools/showtext/showtext.cpp
+--- a/tools/showtext/showtext.cpp	2026-02-19 00:14:37.710865426 +0100
++++ b/tools/showtext/showtext.cpp	2026-02-20 15:44:36.912329076 +0100
+@@ -19,11 +19,11 @@
+ 
+ #include <string>
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/font.h>
+-#include <glcddrivers/config.h>
+-#include <glcddrivers/driver.h>
+-#include <glcddrivers/drivers.h>
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/font.h"
++#include "../../glcddrivers/config.h"
++#include "../../glcddrivers/driver.h"
++#include "../../glcddrivers/drivers.h"
+ 
+ static const char *prgname = "showtext";
+ static const char *version = "0.0.3";
+diff -Naur a/tools/skintest/skintest.cpp b/tools/skintest/skintest.cpp
+--- a/tools/skintest/skintest.cpp	2026-02-19 00:14:37.714865372 +0100
++++ b/tools/skintest/skintest.cpp	2026-02-20 15:44:48.969160510 +0100
+@@ -6,15 +6,15 @@
+ 
+ #include <string>
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/font.h>
+-#include <glcddrivers/config.h>
+-#include <glcddrivers/driver.h>
+-#include <glcddrivers/drivers.h>
+-#include <glcdskin/parser.h>
+-#include <glcdskin/skin.h>
+-#include <glcdskin/config.h>
+-#include <glcdskin/string.h>
++#include "../../glcdgraphics/bitmap.h"
++#include "../../glcdgraphics/font.h"
++#include "../../glcddrivers/config.h"
++#include "../../glcddrivers/driver.h"
++#include "../../glcddrivers/drivers.h"
++#include "../../glcdskin/parser.h"
++#include "../../glcdskin/skin.h"
++#include "../../glcdskin/config.h"
++#include "../../glcdskin/string.h"
+ 
+ class cMySkinConfig : public GLCD::cSkinConfig
+ {

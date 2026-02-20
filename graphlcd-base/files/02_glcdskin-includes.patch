@@ -1,0 +1,62 @@
+diff -Naur a/glcdskin/cache.cpp b/glcdskin/cache.cpp
+--- a/glcdskin/cache.cpp	2026-02-19 00:14:37.708865453 +0100
++++ b/glcdskin/cache.cpp	2022-11-14 17:59:37.000000000 +0100
+@@ -8,11 +8,11 @@
+  *
+  */
+ 
+-#include <glcdgraphics/bitmap.h>
+-#include <glcdgraphics/image.h>
+-#include <glcdgraphics/glcd.h>
+-#include <glcdgraphics/pbm.h>
+-#include <glcdgraphics/extformats.h>
++#include "../glcdgraphics/bitmap.h"
++#include "../glcdgraphics/image.h"
++#include "../glcdgraphics/glcd.h"
++#include "../glcdgraphics/pbm.h"
++#include "../glcdgraphics/extformats.h"
+ 
+ #include <stdlib.h>
+ #include <string.h>
+diff -Naur a/glcdskin/cache.h b/glcdskin/cache.h
+--- a/glcdskin/cache.h	2026-02-19 00:14:37.708865453 +0100
++++ b/glcdskin/cache.h	2022-11-14 17:59:37.000000000 +0100
+@@ -16,7 +16,7 @@
+ #include <string>
+ #include <vector>
+ 
+-#include <glcdgraphics/image.h>
++#include "../glcdgraphics/image.h"
+ 
+ namespace GLCD
+ {
+diff -Naur a/glcdskin/font.h b/glcdskin/font.h
+--- a/glcdskin/font.h	2026-02-19 00:14:37.708865453 +0100
++++ b/glcdskin/font.h	2022-11-14 17:59:37.000000000 +0100
+@@ -16,7 +16,7 @@
+ #include <string>
+ #include <vector>
+ 
+-#include <glcdgraphics/font.h>
++#include "../glcdgraphics/font.h"
+ 
+ #include "display.h"
+ #include "object.h"
+diff -Naur a/glcdskin/object.h b/glcdskin/object.h
+--- a/glcdskin/object.h	2026-02-19 00:14:37.709865440 +0100
++++ b/glcdskin/object.h	2022-11-14 17:59:37.000000000 +0100
+@@ -19,12 +19,12 @@
+ #include <string>
+ #include <map>
+ 
+-#include <glcdgraphics/bitmap.h>
++#include "../glcdgraphics/bitmap.h"
+ 
+ #include "type.h"
+ #include "string.h"
+ 
+-#include <glcddrivers/driver.h>
++#include "../glcddrivers/driver.h"
+ 
+ namespace GLCD
+ {
