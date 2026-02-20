@@ -1,0 +1,92 @@
+--- a/Makefile	2026-02-16 10:35:14.984305715 +0100
++++ b/Makefile	2026-02-16 03:32:31.603728240 +0100
+@@ -7,16 +7,16 @@
+ # (c) 2006-2013 Jörg Wendel
+ #***************************************************************************
+ 
+-FFMDIR = /usr/include
++#FFMDIR = /usr/include
+ 
+ # ----------------------------------------------------------------------------
+ # User settings
+ 
+ # like to support a touch screen ?
+-#WITH_TOUCH = 1
++WITH_TOUCH = 1
+ 
+ # like the X renderer to display directly on local xorg (grpahtft-fe not needed) 
+-#WITH_X = 1
++WITH_X = 1
+ 
+ # compile the graphtft-fe an the therefor tcp communication
+ WITH_TCPCOM = 1
+@@ -53,7 +53,9 @@
+ 
+ ### The compiler options:
+ 
++#export CXX 	?= g++
+ export CFLAGS   = $(call PKGCFG,cflags)
++#export CXXFLAGS = $(call PKGCFG,cxxflags) -ggdb -fPIC -Wall -Wunused-variable -Wunused-label -Wunused-value -Wunused-function -Wno-unused-result -std=c++11
+ export CXXFLAGS = $(call PKGCFG,cxxflags) -ggdb -fPIC -Wall -Wunused-variable -Wunused-label -Wunused-value -Wunused-function -Wno-unused-result
+ 
+ ### The version number of VDR's plugin API:
+@@ -226,26 +228,26 @@
+ #
+ 
+ check-builddep:
+-	if ! pkg-config libavcodec; then \
+-		echo "Missing libavcodec, aborting build !!"; \
+-		exit 1; \
+-	fi
+-	if ! pkg-config libswscale; then \
+-		echo "Missing libswscale, aborting build !!"; \
+-		exit 1; \
+-	fi
+-	if ! pkg-config imlib2; then \
+-		echo "Missing imlib2, aborting build !!"; \
+-		exit 1; \
+-	fi
+-	if ! pkg-config libexif; then \
+-		echo "Missing libexif, aborting build !!"; \
+-		exit 1; \
+-	fi
+-	if ! pkg-config libgtop-2.0; then \
+-		echo "Missing libgtop-2.0, aborting build !!"; \
+-		exit 1; \
+-	fi
++#	if ! pkg-config libavcodec; then \
++#		echo "Missing libavcodec, aborting build !!"; \
++#		exit 1; \
++#	fi
++#	if ! pkg-config libswscale; then \
++#		echo "Missing libswscale, aborting build !!"; \
++#		exit 1; \
++#	fi
++#	if ! pkg-config imlib2; then \
++#		echo "Missing imlib2, aborting build !!"; \
++#		exit 1; \
++#	fi
++#	if ! pkg-config libexif; then \
++#		echo "Missing libexif, aborting build !!"; \
++#		exit 1; \
++#	fi
++#	if ! pkg-config libgtop-2.0; then \
++#		echo "Missing libgtop-2.0, aborting build !!"; \
++#		exit 1; \
++#	fi
+ 
+ $(SOFILE): check-builddep $(COMMONOBJS) $(OBJS)
+ 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared $(OBJS) $(LIBS) -o $@
+
+--- a/graphtft-fe/Makefile	2026-02-16 10:35:14.985305701 +0100
++++ b/graphtft-fe/Makefile	2026-02-16 10:58:01.766096055 +0100
+@@ -4,7 +4,8 @@
+ CXXFLAGS  += -Wno-deprecated-declarations
+ LFLAGS    = -Wl,--no-undefined
+ LIBS      = -lpthread -ljpeg -lX11
+-LIBS      += $(shell imlib2-config --libs)
++#LIBS      += $(shell imlib2-config --libs)
++LIBS += $(shell pkg-config imlib2 --libs 2>/dev/null)
+ AR        = ar
+ 
+ PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell PKG_CONFIG_PATH="$$PKG_CONFIG_PATH:../../.." pkg-config --variable=$(1) vdr))
