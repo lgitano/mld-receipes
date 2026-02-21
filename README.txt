@@ -1,3 +1,1 @@
-This is a README.
-
-I will be edited now for testing purposes.
+These are additional receipes for the MLD ditributiom, version 6.5.
