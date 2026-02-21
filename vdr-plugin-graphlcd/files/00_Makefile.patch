@@ -1,0 +1,11 @@
+--- a/Makefile	2026-02-20 16:47:01.163859205 +0100
++++ b/Makefile	2026-02-20 16:47:54.289123884 +0100
+@@ -27,7 +27,7 @@
+ ### The compiler options:
+ 
+ export CFLAGS   = $(call PKGCFG,cflags)
+-export CXXFLAGS = $(call PKGCFG,cxxflags)
++export CXXFLAGS = $(call PKGCFG,cxxflags) -fpermissive
+ 
+ ### The version number of VDR's plugin API:
+ 
