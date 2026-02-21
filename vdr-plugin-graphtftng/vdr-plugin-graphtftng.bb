@@ -25,16 +25,16 @@ RDEPENDS:${PN} += "vdr-tftng-mango"
 
 do_install() {
 	oe_runmake DESTDIR=${D} install
-	 install -d ${D}${sysconfdir}/vdr/remote.conf.d
-         install -m 0644 ${WORKDIR}/remote.conf.graphtft-fe ${D}${sysconfdir}/vdr/remote.conf.d/graphtft-fe.conf
-	 install -d ${D}${bindir}
-         install -m 0755 ${S}/graphtft-fe/graphtft-fe ${D}${bindir}/
-         install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/themes
-	 install -d ${D}${sharedir}/vdr/plugins/graphtftng/themes
+	install -d ${D}${sysconfdir}/vdr/remote.conf.d
+	install -m 0644 ${WORKDIR}/remote.conf.graphtft-fe ${D}${sysconfdir}/vdr/remote.conf.d/graphtft-fe.conf
+	install -d ${D}${bindir}
+	install -m 0755 ${S}/graphtft-fe/graphtft-fe ${D}${bindir}/
+	install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/themes
+	install -d ${D}${sharedir}/vdr/plugins/graphtftng/themes
 }
 
 FILES:${PN} += " \
-        ${sysconfdir}/vdr/remote.conf.d/graphtft-fe.conf \
+	${sysconfdir}/vdr/remote.conf.d/graphtft-fe.conf \
 	${bindir}/graphtft-fe \
 	${sharedir}/vdr/plugins/graphtftng/ \
 	${sharedir}/vdr/plugins/graphtftng/themes/ \
