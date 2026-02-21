@@ -23,23 +23,23 @@ DEPENDS += "graphlcd-base"
 do_install() {
 	oe_runmake DESTDIR=${D} install
 	install -d ${D}${sysconfdir}/vdr/plugins/graphlcd
-	install -d ${D}${datadir}/vdr/plugins/graphlcd
-	install -d ${D}${datadir}/vdr/plugins/graphlcd/fonts
-	install -d ${D}${datadir}/vdr/plugins/graphlcd/logos
-	install -d ${D}${datadir}/vdr/plugins/graphlcd/skins
-	install -m 0644 ${S}/graphlcd/fonts/* ${D}${datadir}/vdr/plugins/graphlcd/fonts
-	install -m 0644 ${S}/graphlcd/fonts/* ${D}${datadir}/vdr/plugins/graphlcd/logos
-	install -m 0644 ${S}/graphlcd/fonts/* ${D}${datadir}/vdr/plugins/graphlcd/skins
-	install -m 0644 ${S}/graphlcd/channels.alias ${D}${datadir}/vdr/plugins/graphlcd/
-	ln -sf ${datadir}/vdr/plugins/graphlcd/fonts/ ${D}${sysconfdir}/vdr/plugins/graphlcd/fonts
-	ln -sf ${datadir}/vdr/plugins/graphlcd/logos/ ${D}${sysconfdir}/vdr/plugins/graphlcd/logos
-	ln -sf ${datadir}/vdr/plugins/graphlcd/skins/ ${D}${sysconfdir}/vdr/plugins/graphlcd/skins
-	ln -sf ${datadir}/vdr/plugins/graphlcd/channels.alias ${D}${sysconfdir}/vdr/plugins/graphlcd/channels.alias
+	install -d ${D}${sharedir}/vdr/plugins/graphlcd
+	install -d ${D}${sharedir}/vdr/plugins/graphlcd/fonts
+	install -d ${D}${sharedir}/vdr/plugins/graphlcd/logos
+	install -d ${D}${sharedir}/vdr/plugins/graphlcd/skins
+	install -m 0644 ${S}/graphlcd/fonts/* ${D}${sharedir}/vdr/plugins/graphlcd/fonts
+	install -m 0644 ${S}/graphlcd/fonts/* ${D}${sharedir}/vdr/plugins/graphlcd/logos
+	install -m 0644 ${S}/graphlcd/fonts/* ${D}${sharedir}/vdr/plugins/graphlcd/skins
+	install -m 0644 ${S}/graphlcd/channels.alias ${D}${sharedir}/vdr/plugins/graphlcd/
+	ln -sf ${sharedir}/vdr/plugins/graphlcd/fonts/ ${D}${sysconfdir}/vdr/plugins/graphlcd/fonts
+	ln -sf ${sharedir}/vdr/plugins/graphlcd/logos/ ${D}${sysconfdir}/vdr/plugins/graphlcd/logos
+	ln -sf ${sharedir}/vdr/plugins/graphlcd/skins/ ${D}${sysconfdir}/vdr/plugins/graphlcd/skins
+	ln -sf ${sharedir}/vdr/plugins/graphlcd/channels.alias ${D}${sysconfdir}/vdr/plugins/graphlcd/channels.alias
 }
 
 FILES:${PN} += " \
-         ${datadir}/vdr/plugins/graphlcd \
-         ${datadir}/vdr/plugins/graphlcd/* \
+         ${sharedir}/vdr/plugins/graphlcd \
+         ${sharedir}/vdr/plugins/graphlcd/* \
 	 ${sysconfdir}/vdr/plugins/graphlcd \
 	 ${sysconfdir}/vdr/plugins/graphlcd/* \
 	 "
