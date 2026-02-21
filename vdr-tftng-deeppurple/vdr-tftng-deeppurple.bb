@@ -11,17 +11,16 @@ S = "${WORKDIR}/git"
 
 FILES:${PN} = " \
 	${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-deeppurple/* \
-	${sysconfdir}/vdr/plugins/graphtftng \
 	${sysconfdir}/vdr/plugins/graphtftng/* \ 
 	"
 
+DEPENDS += "vdr-tftng-mango"
+
 do_install() {
+        install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/themes
 	install -d ${D}${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-deeppurple
-	install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/themes
-	install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/fonts
 	tar xvfz ${S}/channellogos.tar.gz
 	rm ${S}/channellogos.tar.gz
 	cp -r ${S}/* ${D}${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-deeppurple/
-        ln -sf ${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-deeppurple/ ${D}${sysconfdir}/vdr/plugins/graphtftng/themes/DeepPurple
-        ln -sf ${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-deeppurple/fonts/graphTFT.ttf ${D}${sysconfdir}/vdr/plugins/graphtftng/fonts/graphTFT.ttf
+	ln -sf ${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-deeppurple/ ${D}${sysconfdir}/vdr/plugins/graphtftng/themes/DeepPurple
 }

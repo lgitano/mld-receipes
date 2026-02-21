@@ -17,10 +17,10 @@ FILES:${PN} = " \
 	"
 
 do_install() {
-	install -d ${D}${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-mango
-	install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/themes
+        install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/themes
 	install -d ${D}${sysconfdir}/vdr/plugins/graphtftng/fonts
+	install -d ${D}${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-mango
 	cp -r ${S}/* ${D}${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-mango/
-        ln -sf ${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-mango/ ${D}${sysconfdir}/vdr/plugins/graphtftng/themes/anthraize-mango
+	ln -sf ${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-mango/ ${D}${sysconfdir}/vdr/plugins/graphtftng/themes/anthraize-mango
         ln -sf ${datadir}/vdr/plugins/graphtftng/themes/vdr-tftng-mango/fonts/graphTFT.ttf ${D}${sysconfdir}/vdr/plugins/graphtftng/fonts/graphTFT.ttf
 }
