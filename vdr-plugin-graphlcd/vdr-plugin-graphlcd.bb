@@ -43,3 +43,10 @@ FILES:${PN} += " \
 	 ${sysconfdir}/vdr/plugins/graphlcd \
 	 ${sysconfdir}/vdr/plugins/graphlcd/* \
 	 "
+pkg_postinst:${PN}() {
+
+#!/bin/sh
+  if [ -z "$D" ]; then
+                setting set vdr.plugins.graphlcd.conf.default "-d none"
+        fi
+}
