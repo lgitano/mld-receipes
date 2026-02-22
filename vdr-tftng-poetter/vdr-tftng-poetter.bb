@@ -5,7 +5,7 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=9f867da7a73fad2715291348e80d0763"
 
 SRC_URI = "git://github.com/lgitano/vdr-tftng-poetter;protocol=https;branch=main"
-SRCREV = "3f6b180968e5742c9cdc4702fbadbc60ce34a070"
+SRCREV = "40583b6e4a060e68023f45f26effaf21f139d0c4"
 
 S = "${WORKDIR}/git"
 
