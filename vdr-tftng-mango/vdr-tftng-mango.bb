@@ -6,7 +6,7 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=9f867da7a73fad2715291348e80d0763"
 
 SRC_URI = "git://github.com/lgitano/vdr-tftng-mango;protocol=https;branch=main"
-SRCREV = "4aabfbe2d4642143c9b2196141a599eeb52a597d"
+SRCREV = "3e71676a6ff96a5d78f4a37eb02f4e9b9159adda"
 
 S = "${WORKDIR}/git"
 
